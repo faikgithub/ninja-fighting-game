@@ -26,6 +26,7 @@ class Sprite {
    }
    this.color = color
    this.isAttacking
+   this.health = 100
  }
 
 draw(){
@@ -37,7 +38,7 @@ draw(){
 
   //    attack Box
 
-//    if(this.isAttacking){
+  if(this.isAttacking){
 
    c.fillStyle ='green'
    c.fillRect(
@@ -46,7 +47,7 @@ draw(){
      this.attackBox.width,
      this.attackBox.height
    )
-   //}
+   }
 
 }
 
@@ -181,7 +182,8 @@ enemy.velocity.x = 0
      player.isAttacking
    ){
      player.isAttacking = false
-    console.log('go');
+     enemy.health -= 20
+    document.querySelector('#enemyHealth').style.width= enemy.health+'%'
 
   }
 
@@ -193,7 +195,8 @@ enemy.velocity.x = 0
      enemy.isAttacking
    ){
      enemy.isAttacking = false
-    console.log('enemy attack successful');
+     player.health -= 20
+     document.querySelector('#playerHealth').style.width= player.health+'%'
 
   }
 

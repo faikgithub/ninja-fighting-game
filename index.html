@@ -3,12 +3,62 @@
   <head>
     <meta charset="utf-8">
     <title></title>
+
+   <style>
+     *{
+    box-sizing: border-box;
+
+     }
+   </style>
+
   </head>
   <body>
 
+  <!-- red container div-->
+  <div style="position: relative; display: inline-block;">
 
-<canvas id="canvas" width="300" height="150"></canvas>
+      <!-- smaller red container div-->
+     <div style="
+     position: absolute;
+     display: flex;
+     width: 100%;
+     align-items: center;
+     padding: 20px;
+     ">
+      <!-- player health bar-->
+     <div style="position: relative; height: 30px;  width: 100%; display: flex; justify-content: flex-end; ">
+     <div  style="background-color: yellow; height: 30px; width: 100%;" ></div>
+      <div id="playerHealth" style="position: absolute; background: blue; top:0; right: 0; bottom: 0; width: 100%">
 
+      </div>
+
+      </div>
+
+          <!-- timer -->
+          <div style="
+          background-color: red;
+          width: 100px;
+          height: 100px;
+          flex-shrink: 0;
+          ">
+
+          </div>
+
+            <div style="position: relative; height: 30px;  width: 100%;">
+           <!-- enemy health bar-->
+            <div  style="background-color: yellow; height: 30px" ></div>
+             <div id="enemyHealth" style="position: absolute; background: blue; top:0; right: 0; bottom: 0; left:0;">
+
+             </div>
+
+             </div>
+
+
+     </div>
+
+
+<canvas style="background-color: gray" id="canvas" width="1024" height="576"></canvas>
+</div>
 <script src="index.js">
 
 </script>
