@@ -18,36 +18,82 @@ const background = new Sprite({
 
 })
 
+
+const shop = new Sprite({
+  position: {
+    x: 650,
+    y: 192
+  },
+    imageSrc: './img/shop_anim.png',
+    scale: 3,
+    framesMax: 6
+
+})
+
 const player = new Fighter({
-position:  {
- x: 0,
- y: 0
-},
-velocity: {
-  x: 0,
-  y: 0
-},
- offset: {
-   x:0 ,
-   y:0 ,
- }
+  position: {
+    x: 0,
+    y: 0
+  },
+  velocity: {
+    x: 0,
+    y: 0
+  },
+  offset: {
+    x: 0,
+    y: 0
+  },
+  imageSrc: './img/samuraiMack/Idle.png',
+  framesMax: 8,
+  scale: 2.5,
+  offset: {
+    x: 150,
+    y: 60
+  },
+  sprites: {
+    idle: {
+      imageSrc:'./img/samuraiMack/Idle.png',
+      framesMax: 8
+    },
+    run: {
+      imageSrc: './img/samuraiMack/Run.png',
+      framesMax: 8,
+      image: new Image()
+    }
+  }
+
+
+
+
+
 })
 
 
 const enemy = new Fighter({
-position:  {
- x: 400,
- y: 100
-},
-velocity: {
-  x: 0,
-  y: 0
-},
-color: 'blue',
-offset: {
-  x: -50,
-  y:0
-}
+  position: {
+    x: 400,
+    y: 100
+  },
+  velocity: {
+    x: 0,
+    y: 0
+  },
+  color: 'blue',
+  offset: {
+    x: -50,
+    y: 0
+  },
+  imageSrc: './img/kenji/Idle.png',
+  framesMax: 2,
+  scale: 2.5,
+  offset: {
+    x: 10,
+    y: 60
+  }
+
+
+
+
 })
 
 
@@ -87,6 +133,7 @@ function animate() {
     c.fillStyle = 'black'
   c.clearRect(0,0, canvas.width, canvas.height)
   background.update()
+  shop.update()
   player.update()
   enemy.update()
 
@@ -94,10 +141,16 @@ function animate() {
 player.velocity.x = 0
 enemy.velocity.x = 0
 
+ //player movement
+  player.image = player.sprites.idle.image
   if(keys.a.pressed && player.lastKey =='a'){
     player.velocity.x = -5
+    player.image = player.sprites.run.image
+
+
   } else if(keys.d.pressed && player.lastKey =='d'){
     player.velocity.x = 5
+     player.image = player.sprites.run.image
   }
 
     //enemy movement
