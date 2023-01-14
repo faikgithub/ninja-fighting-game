@@ -290,8 +290,14 @@ window.addEventListener('keydown', (event) => {
         player.lastKey = 'a'
         break
       case 'w':
-        player.velocity.y = -20
+      if(player.position.y>40){
+          player.velocity.y = -15
         break
+      }else{
+        break
+      }
+
+
       case ' ':
         player.attack()
         break
@@ -309,8 +315,12 @@ window.addEventListener('keydown', (event) => {
         enemy.lastKey = 'ArrowLeft'
         break
       case 'ArrowUp':
-        enemy.velocity.y = -20
-        break
+      if(enemy.position.y>40){
+          enemy.velocity.y = -15
+        break}else{
+          break
+        }
+
       case 'ArrowDown':
         enemy.attack()
 
