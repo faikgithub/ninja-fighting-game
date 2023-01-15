@@ -126,9 +126,9 @@ class Fighter extends Sprite {
   }
 
   attack() {
-    this.switchSprite('attack1')
+    this.switchSprite('attack1l')
     this.isAttacking = true
-  }
+}
 
   takeHit() {
     this.health -= 20
@@ -167,6 +167,23 @@ class Fighter extends Sprite {
           this.framesCurrent = 0
         }
         break
+
+        case 'idler':
+          if (this.image !== this.sprites.idler.image) {
+            this.image = this.sprites.idler.image
+            this.framesMax = this.sprites.idler.framesMax
+            this.framesCurrent = 0
+          }
+          break
+
+        case 'idlel':
+          if (this.image !== this.sprites.idlel.image) {
+            this.image = this.sprites.idlel.image
+            this.framesMax = this.sprites.idlel.framesMax
+            this.framesCurrent = 0
+          }
+          break
+
       case 'run':
         if (this.image !== this.sprites.run.image) {
           this.image = this.sprites.run.image
@@ -174,6 +191,24 @@ class Fighter extends Sprite {
           this.framesCurrent = 0
         }
         break
+
+        case 'runl':
+          if (this.image !== this.sprites.runl.image) {
+            this.image = this.sprites.runl.image
+            this.framesMax = this.sprites.runl.framesMax
+            this.framesCurrent = 0
+          }
+          break
+
+
+          case 'runr':
+            if (this.image !== this.sprites.runr.image) {
+              this.image = this.sprites.runr.image
+              this.framesMax = this.sprites.runr.framesMax
+              this.framesCurrent = 0
+            }
+            break
+
       case 'jump':
         if (this.image !== this.sprites.jump.image) {
           this.image = this.sprites.jump.image
@@ -181,6 +216,22 @@ class Fighter extends Sprite {
           this.framesCurrent = 0
         }
         break
+
+        case 'jumpl':
+          if (this.image !== this.sprites.jumpl.image) {
+            this.image = this.sprites.jumpl.image
+            this.framesMax = this.sprites.jumpl.framesMax
+            this.framesCurrent = 0
+          }
+          break
+
+          case 'jumpr':
+            if (this.image !== this.sprites.jumpr.image) {
+              this.image = this.sprites.jumpr.image
+              this.framesMax = this.sprites.jumpr.framesMax
+              this.framesCurrent = 0
+            }
+            break
 
       case 'fall':
         if (this.image !== this.sprites.fall.image) {
@@ -190,6 +241,22 @@ class Fighter extends Sprite {
         }
         break
 
+        case 'fallr':
+          if (this.image !== this.sprites.fallr.image) {
+            this.image = this.sprites.fallr.image
+            this.framesMax = this.sprites.fallr.framesMax
+            this.framesCurrent = 0
+          }
+          break
+
+        case 'falll':
+          if (this.image !== this.sprites.falll.image) {
+            this.image = this.sprites.falll.image
+            this.framesMax = this.sprites.falll.framesMax
+            this.framesCurrent = 0
+          }
+          break
+
       case 'attack1':
         if (this.image !== this.sprites.attack1.image) {
           this.image = this.sprites.attack1.image
@@ -197,6 +264,14 @@ class Fighter extends Sprite {
           this.framesCurrent = 0
         }
         break
+
+        case 'attack1l':
+          if (this.image !== this.sprites.attack1l.image) {
+            this.image = this.sprites.attack1l.image
+            this.framesMax = this.sprites.attack1l.framesMax
+            this.framesCurrent = 0
+          }
+          break
 
       case 'takeHit':
         if (this.image !== this.sprites.takeHit.image) {

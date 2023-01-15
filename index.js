@@ -9,6 +9,8 @@ c.fillRect(0, 0, canvas.width, canvas.height)
 const gravity = 0.7
 
 
+
+
 const background = new Sprite({
   position: {
     x: 0,
@@ -43,7 +45,7 @@ const player = new Fighter({
     x: 0,
     y: 0
   },
-  imageSrc: './img/samuraiMack/Idle.png',
+  imageSrc:'./img/samuraiMack/Idle.png',
   framesMax: 8,
   scale: 2.5,
   offset: {
@@ -52,15 +54,30 @@ const player = new Fighter({
   },
   sprites: {
     idle: {
+
       imageSrc: './img/samuraiMack/Idle.png',
+      framesMax: 8
+    },
+    idlel: {
+      imageSrc: './img/samuraiMack/Idlel.png',
       framesMax: 8
     },
     run: {
       imageSrc: './img/samuraiMack/Run.png',
       framesMax: 8
     },
+    runl: {
+  imageSrc: './img/samuraiMack/Run1.png',
+  framesMax: 8
+    },
+
     jump: {
       imageSrc: './img/samuraiMack/Jump.png',
+      framesMax: 2
+    },
+
+    jumpl: {
+      imageSrc: './img/samuraiMack/Jumpl.png',
       framesMax: 2
     },
     fall: {
@@ -69,6 +86,10 @@ const player = new Fighter({
     },
     attack1: {
       imageSrc: './img/samuraiMack/Attack1.png',
+      framesMax: 6
+    },
+    attack1l: {
+      imageSrc: './img/samuraiMack/Attack1l.png',
       framesMax: 6
     },
     takeHit: {
@@ -117,20 +138,45 @@ const enemy = new Fighter({
       imageSrc: './img/kenji/Idle.png',
       framesMax: 4
     },
+    idler: {
+      imageSrc: './img/kenji/Idler.png',
+      framesMax: 4
+    },
     run: {
       imageSrc: './img/kenji/Run.png',
+      framesMax: 8
+    },
+
+    runr: {
+      imageSrc: './img/kenji/Runr.png',
       framesMax: 8
     },
     jump: {
       imageSrc: './img/kenji/Jump.png',
       framesMax: 2
     },
+    jumpr: {
+      imageSrc: './img/kenji/Jumpr.png',
+      framesMax: 2
+    },
     fall: {
       imageSrc: './img/kenji/Fall.png',
       framesMax: 2
     },
+    fallr: {
+      imageSrc: './img/kenji/Fallr.png',
+      framesMax: 2
+    },
+    falll: {
+      imageSrc: './img/kenji/Falll.png',
+      framesMax: 2
+    },
     attack1: {
       imageSrc: './img/kenji/Attack1.png',
+      framesMax: 4
+    },
+    attacklr: {
+      imageSrc: './img/kenji/Attack1r.png',
       framesMax: 4
     },
     takeHit: {
@@ -193,19 +239,29 @@ function animate() {
 
   if (keys.a.pressed && player.lastKey === 'a') {
     player.velocity.x = -5
-    player.switchSprite('run')
+    player.switchSprite('runl')
   } else if (keys.d.pressed && player.lastKey === 'd') {
     player.velocity.x = 5
     player.switchSprite('run')
-  } else {
-    player.switchSprite('idle')
+  } else { if(player.lastKey === 'a'){
+   player.switchSprite('idlel')
+  }else{player.switchSprite('idle')
+}
   }
 
   // jumping
   if (player.velocity.y < 0) {
-    player.switchSprite('jump')
+    if(player.lastKey === 'a'){
+           player.switchSprite('jumpl')
+    }
+    else{  player.switchSprite('jump')
+  }
+
   } else if (player.velocity.y > 0) {
-    player.switchSprite('fall')
+    if (player.lastKey === 'a') {
+           player.switchSprite('falll')
+    }else{
+    player.switchSprite('fall')}
   }
 
   // Enemy movement
@@ -214,16 +270,26 @@ function animate() {
     enemy.switchSprite('run')
   } else if (keys.ArrowRight.pressed && enemy.lastKey === 'ArrowRight') {
     enemy.velocity.x = 5
-    enemy.switchSprite('run')
-  } else {
-    enemy.switchSprite('idle')
+    enemy.switchSprite('runr')
+
+}else { if(enemy.lastKey =='ArrowRight'){
+          enemy.switchSprite('idler')
+}else{
+
+    enemy.switchSprite('idle')}
   }
 
   // jumping
   if (enemy.velocity.y < 0) {
-    enemy.switchSprite('jump')
+    if(enemy.lastKey === 'ArrowRight'){
+           enemy.switchSprite('jumpr')
+    }else{
+    enemy.switchSprite('jump')}
   } else if (enemy.velocity.y > 0) {
-    enemy.switchSprite('fall')
+    if(enemy.lastKey === 'ArrowRight'){
+      enemy.switchSprite('fallr')
+    }else{
+    enemy.switchSprite('fall') }
   }
 
   // detect for collision & enemy gets hit
@@ -296,11 +362,11 @@ window.addEventListener('keydown', (event) => {
       }else{
         break
       }
-
-
       case ' ':
+
         player.attack()
-        break
+      break
+
     }
   }
 
@@ -336,6 +402,7 @@ window.addEventListener('keyup', (event) => {
       break
     case 'a':
       keys.a.pressed = false
+
       break
   }
 
