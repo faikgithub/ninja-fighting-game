@@ -125,9 +125,14 @@ class Fighter extends Sprite {
     } else this.velocity.y += gravity
   }
 
-  attack() {
+  attack() { if(this.lastKey=='a') {
     this.switchSprite('attack1l')
     this.isAttacking = true
+
+  } else{
+    this.switchSprite('attack1')
+    this.isAttacking = true
+    }
 }
 
   takeHit() {
@@ -143,14 +148,32 @@ class Fighter extends Sprite {
       if (this.framesCurrent === this.sprites.death.framesMax - 1)
         this.dead = true
       return
+
+
+
+
     }
 
     // overriding all other animations with the attack animation
+
+    if(player.lastKey=='a'){
+      if (
+
+        this.image === this.sprites.attack1l.image &&
+        this.framesCurrent < this.sprites.attack1l.framesMax - 1
+      )
+      return
+
+    }else{
     if (
+
       this.image === this.sprites.attack1.image &&
       this.framesCurrent < this.sprites.attack1.framesMax - 1
     )
-      return
+    return }
+
+
+
 
     // override when fighter gets hit
     if (

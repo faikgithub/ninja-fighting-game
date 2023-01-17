@@ -106,7 +106,7 @@ const player = new Fighter({
       x: 150,
       y: 50
     },
-    width: 160,
+    width: 250,
     height: 50
   }
 })
@@ -238,12 +238,23 @@ function animate() {
   // player movement
 
   if (keys.a.pressed && player.lastKey === 'a') {
+
+    if(player.position.x<-30){
+               player.switchSprite('runl')
+    }else{
+
+
     player.velocity.x = -5
     player.switchSprite('runl')
+    }
   } else if (keys.d.pressed && player.lastKey === 'd') {
+    if(player.position.x>890){
+              player.switchSprite('run')
+    }
+    else{
     player.velocity.x = 5
     player.switchSprite('run')
-  } else { if(player.lastKey === 'a'){
+  }} else { if(player.lastKey === 'a'){
    player.switchSprite('idlel')
   }else{player.switchSprite('idle')
 }
@@ -266,13 +277,19 @@ function animate() {
 
   // Enemy movement
   if (keys.ArrowLeft.pressed && enemy.lastKey === 'ArrowLeft') {
+    if(enemy.position.x<0){
+        enemy.switchSprite('run')
+    } else{
     enemy.velocity.x = -5
     enemy.switchSprite('run')
-  } else if (keys.ArrowRight.pressed && enemy.lastKey === 'ArrowRight') {
+  }} else if (keys.ArrowRight.pressed && enemy.lastKey === 'ArrowRight') {
+    if(enemy.position.x>935){
+         enemy.switchSprite('runr')
+    }else{
     enemy.velocity.x = 5
     enemy.switchSprite('runr')
 
-}else { if(enemy.lastKey =='ArrowRight'){
+}}else { if(enemy.lastKey =='ArrowRight'){
           enemy.switchSprite('idler')
 }else{
 
