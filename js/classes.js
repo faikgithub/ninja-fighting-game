@@ -125,7 +125,7 @@ class Fighter extends Sprite {
     } else this.velocity.y += gravity
   }
 
-  attack() { if(this.lastKey=='a') {
+  attack() { if(player.lastKey=='a' ) {
     this.switchSprite('attack1l')
     this.isAttacking = true
 

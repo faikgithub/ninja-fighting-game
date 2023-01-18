@@ -102,11 +102,12 @@ const player = new Fighter({
     }
   },
   attackBox: {
+
     offset: {
       x: 150,
       y: 50
     },
-    width: 250,
+    width: 180,
     height: 50
   }
 })
@@ -190,10 +191,10 @@ const enemy = new Fighter({
   },
   attackBox: {
     offset: {
-      x: -170,
+      x: -220,
       y: 50
     },
-    width: 170,
+    width: 180,
     height: 50
   }
 })
@@ -280,10 +281,11 @@ function animate() {
     if(enemy.position.x<0){
         enemy.switchSprite('run')
     } else{
+
     enemy.velocity.x = -5
     enemy.switchSprite('run')
   }} else if (keys.ArrowRight.pressed && enemy.lastKey === 'ArrowRight') {
-    if(enemy.position.x>935){
+    if(enemy.position.x>930){
          enemy.switchSprite('runr')
     }else{
     enemy.velocity.x = 5

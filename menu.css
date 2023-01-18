@@ -1,0 +1,110 @@
+* {
+  box-sizing: border-box;
+  font-family: 'Press Start 2P', cursive;
+  background: url(./img/background-menu.gif);
+  background-repeat: no-repeat;
+  background-size: cover;
+
+}
+
+
+.menu{
+  position: relative;
+  top: 10%;
+}
+
+h1{
+  color: white;
+  font-size: 5vh;
+}
+
+h2{
+  font-size: 1.5vh;
+  align-items:center;
+  justify-content: center;
+  display: flex;
+  color: white;
+    background: #1f2734;
+}
+
+.spiel, .settings{
+  position: absolute;
+  top: 40%;
+  left: 35%;
+  width: 30%;
+  height: 5%;
+  text-decoration: none;
+    background: #1f2734;
+
+}
+
+span:hover{
+
+    background-color: #b07b3d;
+
+}
+
+
+
+
+.spiel{
+
+  position: absolute;
+  top: 28%;
+
+
+  border:  4px solid white;
+}
+
+.settings{
+  position: absolute;
+  top: 34.5%;
+
+  border:  4px solid white;
+}
+
+@media (max-width: 1000px){
+
+  .spiel, .settings{
+    position: absolute;
+    top: 40%;
+    left: 30%;
+    width: 40%;
+    height: 5%;
+    text-decoration: none;
+      background: #1f2734;
+
+  }
+
+  .spiel{
+
+    position: absolute;
+    top: 28%;
+}
+
+.settings{
+  position: absolute;
+  top: 34.5%;
+
+  border:  4px solid white;
+}
+
+h1{
+  color: white;
+  font-size: 3vh;
+
+}
+
+.menu{
+  position: absolute;
+  top: 12%;
+  left: 4%;
+}
+
+.github{
+  position: absolute;
+  top: 41%;
+  left: 46%;
+}
+
+}
